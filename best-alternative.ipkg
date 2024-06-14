@@ -1,0 +1,12 @@
+package best-alternative
+
+authors = "Denis Buzdalov"
+
+brief = "Utilities for types implementing `Alternative` interface"
+
+license = "Apache-2.0"
+
+sourcedir = "src"
+builddir = ".build"
+
+modules = Data.Alternative

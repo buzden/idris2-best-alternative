@@ -1,0 +1,5 @@
+[custom.all.best-alternative]
+type = "local"
+path = "."
+ipkg = "best-alternative.ipkg"
+test = "tests/tests.ipkg"
