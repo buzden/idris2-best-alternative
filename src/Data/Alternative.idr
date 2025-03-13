@@ -24,3 +24,12 @@ public export
 whenTs : Alternative f => Bool -> f a -> f a
 whenTs True  x = x
 whenTs False _ = empty
+
+public export
+foldAlt : Alternative f => (a -> f b) -> List a -> f b
+foldAlt _ []      = empty
+foldAlt f (x::xs) = f x <|> foldAlt f xs
+
+public export %inline
+foldAlt' : Alternative f => List a -> (a -> f b) -> f b
+foldAlt' = flip foldAlt
