@@ -16,7 +16,7 @@ optional = atLeast Nothing . map Just
 
 -- `whenT b x` ~ `guard b $> x`
 public export
-whenT : Alternative f => Bool -> a -> f a
+whenT : Alternative f => Bool -> Lazy a -> f a
 whenT True  x = pure x
 whenT False _ = empty
 
