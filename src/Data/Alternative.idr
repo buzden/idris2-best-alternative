@@ -26,6 +26,16 @@ whenTs True  x = x
 whenTs False _ = empty
 
 public export
+whenJ : Alternative f => Maybe a -> (a -> b) -> f b
+whenJ Nothing  _ = empty
+whenJ (Just x) g = pure $ g x
+
+public export
+whenJs : Alternative f => Maybe a -> (a -> f b) -> f b
+whenJs Nothing  _ = empty
+whenJs (Just x) g = g x
+
+public export
 foldAlt : Alternative f => (a -> f b) -> List a -> f b
 foldAlt _ []      = empty
 foldAlt f (x::xs) = f x <|> foldAlt f xs
